@@ -19,6 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        require_once str_replace("".DIRECTORY_SEPARATOR."Providers","".DIRECTORY_SEPARATOR."Http".DIRECTORY_SEPARATOR."functions.php",__DIR__);
     }
 }

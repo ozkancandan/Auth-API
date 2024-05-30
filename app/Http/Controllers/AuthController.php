@@ -47,7 +47,7 @@ class AuthController extends Controller
             $user->last_name = request()->last_name;
             $user->user_code = uuid();
             $user->email = request()->email;
-            $user->user_level = request()->user_level;
+            $user->user_level = request()->get("user_level",0);
             $user->password = bcrypt(request()->password);
             $user->save();
 
@@ -57,7 +57,7 @@ class AuthController extends Controller
                 "error"=>[
                     "message"=>$e->getMessage()
                 ]
-            ], $e->getCode());
+            ], 500);
         }
     }
 
